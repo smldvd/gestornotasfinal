@@ -1,0 +1,39 @@
+<ul class="alert alert-danger" *ngIf="errores.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul>
+<div class="card bg-dark text-white my-2"   style="width: 50%; margin: auto auto;"> 
+   <div id= "ancla" class="card-header">INGRESAR NUEVOS DATOS</div>
+   <div class="card-body">
+    <form #clienteForm="ngForm">
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label colm-sm-2">Materia</label>
+         <div class="col-sm-6">            
+             <input type="text" class="form-control" [(ngModel)]="cliente.nombre" id="nombre" name="nombre" style="display:inline; width:300px;" required>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label colm-sm-2">Nota</label>
+         <div class="col-sm-6"> 
+           <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" style="display:inline; width:300px;" required>            
+         </div>
+      </div>     
+      <div class="form-group row">
+        <label for="email" class="col-form-label colm-sm-2">Email estudiante</label>
+         <div class="col-sm-6">            
+          <input type="email" class="form-control" [(ngModel)]="cliente.correo" name="email" style="display:inline; width:300px;" required>          
+         </div>
+      </div>                     
+      <div class="form-group my-3 row">
+      <div class="col-sm-6">
+        <button class="btn btn-primary "  *ngIf="buttonCreate; else hiddeUpdate" role="button" (click)='create()' [disabled]="!clienteForm.form.valid">Crear</button>
+        <ng-template #hiddeUpdate>
+        <button class="btn btn-primary "  role="button" (click)='update()' [disabled]="!clienteForm.form.valid">Actualizar</button>
+        </ng-template>
+        <button class="btn btn-danger m-2"  role="button" routerLink='/clients'>Cancelar</button>
+        </div>
+      </div>
+    </form>  
+   </div>  
+</div>

@@ -1,0 +1,33 @@
+<div clas="card border-primary mb3">
+    <div class="card-header"></div>
+    <div class="card-body text-primary">
+        <h5 id= "ancla2" class="card-title">Listado de estudiantes</h5>
+        <div class="my-2 text-left"></div>
+        <button type="button" [routerLink]="['/clients/form']" class="btn btn-success">crear</button>
+        <div *ngIf="clients?.length==0" class="alert aletr-info">
+            No hay registros edn la base de datos
+        </div>
+        <table class="table table-border table-hover text-primary ">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                    <th>Email estudiante</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clients">
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.apellido}}</td>
+                    <td>{{cliente.correo}}</td>
+                    <td><button type="button" [routerLink]="['/clients/form',cliente._id]" class="btn btn-info">Actualizar</button></td>
+                    <td><button type="button" (click)="delete(cliente)" class="btn btn-danger">eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

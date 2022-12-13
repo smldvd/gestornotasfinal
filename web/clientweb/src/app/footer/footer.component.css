@@ -1,0 +1,9 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+article {
+    margin: auto 0;
+}
