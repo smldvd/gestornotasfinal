@@ -24,7 +24,7 @@ class Server{
        //Lectura y parseo del body
        this.app.use(express.json());
 
-       this.app.use(express.static('public'));  
+       this.app.use(express.static('web/clientweb'));  
 
     }
 
