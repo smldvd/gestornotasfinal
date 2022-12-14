@@ -6,14 +6,10 @@ const { validarCampos } = require('../Middlewares/validar-campos');
 const { check } = require('express-validator');
 
 const { esRoleValido, existeClientePorId } = require('../helpers/db-validators');
-const { tieneRol } =  require('../Middlewares/validar-roles');
 
 const router=Router();
 
-router.get('/',[
-
-    tieneRol('VENTA_ROLE','ADMIN_ROLE')
-], clientsGet);
+router.get('/',[], clientsGet);
 router.get('/:id',clientsGetById)
 router.post('/',
     [
